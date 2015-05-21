@@ -16,7 +16,7 @@ namespace BookShop.Controllers
         {
             return View();
         }
-        // GET: Admin
+        // GET: Admina
         public ActionResult Product()
         {
             return View();

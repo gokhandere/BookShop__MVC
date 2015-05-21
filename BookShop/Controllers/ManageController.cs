@@ -51,7 +51,7 @@ namespace BookShop.Controllers
         }
 
         //
-        // GET: /Manage/Index
+        // GET: /Manage/Indexs
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
