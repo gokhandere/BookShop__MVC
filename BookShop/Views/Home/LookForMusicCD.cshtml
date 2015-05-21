@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BookShop.MusicCD>
+
+@{
+    ViewBag.Title = "LookForMusicCD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LookForMusicCD</h2>
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MusicCDName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Explanations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Musician.MusicianName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicCDName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Explanations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Musician.MusicianName)
+        </td>
+        <td>
+            @Html.ActionLink("Buy", "BuyMusic ", new { id = item.id })
+
+        </td>
+    </tr>
+}
+
+</table>

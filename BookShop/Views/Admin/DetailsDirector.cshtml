@@ -1,0 +1,27 @@
+﻿@model BookShop.Director
+
+@{
+    ViewBag.Title = "DetailsDirector";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetailsDirector</h2>
+
+<div>
+    <h4>Director</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditDirector", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "DirectorList")
+</p>

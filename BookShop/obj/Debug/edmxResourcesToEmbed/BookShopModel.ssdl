@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="AuthorID" Type="int" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PublishingHouse" Type="nvarchar" MaxLength="50" />
+    <Property Name="PublishingYear" Type="int" />
+    <Property Name="Explanations" Type="nvarchar" MaxLength="500" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="100" />
+    <Property Name="StockAmount" Type="int" Nullable="false" />
+    <Property Name="SoldAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="BookSales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="128" />
+    <Property Name="BookID" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Director">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DirectorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DVD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="DirectorID" Type="int" />
+    <Property Name="DVDName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Year" Type="int" />
+    <Property Name="IMDB" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="Explanations" Type="nvarchar" MaxLength="500" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="100" />
+    <Property Name="StockAmount" Type="int" />
+    <Property Name="SoldAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="DVD_Actor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DVDID" Type="int" />
+    <Property Name="ActorID" Type="int" />
+  </EntityType>
+  <EntityType Name="DVDSales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="128" />
+    <Property Name="DVDID" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MusicCD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="MusicianID" Type="int" />
+    <Property Name="MusicCDName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Explanations" Type="nvarchar" MaxLength="500" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="100" />
+    <Property Name="StockAmount" Type="int" />
+    <Property Name="SoldAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="MusicCDSales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="128" />
+    <Property Name="MusicCDID" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Musician">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusicianName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Book_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="AuthorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookSales_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+    <End Role="BookSales" Type="Self.BookSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BookSales">
+        <PropertyRef Name="BookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DVD_Actor_Actor">
+    <End Role="Actor" Type="Self.Actor" Multiplicity="0..1" />
+    <End Role="DVD_Actor" Type="Self.DVD_Actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DVD_Actor">
+        <PropertyRef Name="ActorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DVD_Actor_DVD">
+    <End Role="DVD" Type="Self.DVD" Multiplicity="0..1" />
+    <End Role="DVD_Actor" Type="Self.DVD_Actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DVD">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DVD_Actor">
+        <PropertyRef Name="DVDID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DVD_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="DVD" Type="Self.DVD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DVD">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DVD_Director">
+    <End Role="Director" Type="Self.Director" Multiplicity="0..1" />
+    <End Role="DVD" Type="Self.DVD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Director">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DVD">
+        <PropertyRef Name="DirectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DVDSales_DVD">
+    <End Role="DVD" Type="Self.DVD" Multiplicity="0..1" />
+    <End Role="DVDSales" Type="Self.DVDSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DVD">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DVDSales">
+        <PropertyRef Name="DVDID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MusicCD_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="MusicCD" Type="Self.MusicCD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MusicCD">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MusicCD_Musician">
+    <End Role="Musician" Type="Self.Musician" Multiplicity="0..1" />
+    <End Role="MusicCD" Type="Self.MusicCD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musician">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MusicCD">
+        <PropertyRef Name="MusicianID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MusicCDSales_MusicCD">
+    <End Role="MusicCD" Type="Self.MusicCD" Multiplicity="0..1" />
+    <End Role="MusicCDSales" Type="Self.MusicCDSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MusicCD">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MusicCDSales">
+        <PropertyRef Name="MusicCDID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookShopDBModelStoreContainer">
+    <EntitySet Name="Actor" EntityType="Self.Actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookSales" EntityType="Self.BookSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Director" EntityType="Self.Director" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DVD" EntityType="Self.DVD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DVD_Actor" EntityType="Self.DVD_Actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DVDSales" EntityType="Self.DVDSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MusicCD" EntityType="Self.MusicCD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MusicCDSales" EntityType="Self.MusicCDSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musician" EntityType="Self.Musician" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Category" Association="Self.FK_Book_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookSales_Book" Association="Self.FK_BookSales_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="BookSales" EntitySet="BookSales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DVD_Actor_Actor" Association="Self.FK_DVD_Actor_Actor">
+      <End Role="Actor" EntitySet="Actor" />
+      <End Role="DVD_Actor" EntitySet="DVD_Actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DVD_Actor_DVD" Association="Self.FK_DVD_Actor_DVD">
+      <End Role="DVD" EntitySet="DVD" />
+      <End Role="DVD_Actor" EntitySet="DVD_Actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DVD_Category" Association="Self.FK_DVD_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="DVD" EntitySet="DVD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DVD_Director" Association="Self.FK_DVD_Director">
+      <End Role="Director" EntitySet="Director" />
+      <End Role="DVD" EntitySet="DVD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DVDSales_DVD" Association="Self.FK_DVDSales_DVD">
+      <End Role="DVD" EntitySet="DVD" />
+      <End Role="DVDSales" EntitySet="DVDSales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MusicCD_Category" Association="Self.FK_MusicCD_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="MusicCD" EntitySet="MusicCD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MusicCD_Musician" Association="Self.FK_MusicCD_Musician">
+      <End Role="Musician" EntitySet="Musician" />
+      <End Role="MusicCD" EntitySet="MusicCD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MusicCDSales_MusicCD" Association="Self.FK_MusicCDSales_MusicCD">
+      <End Role="MusicCD" EntitySet="MusicCD" />
+      <End Role="MusicCDSales" EntitySet="MusicCDSales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

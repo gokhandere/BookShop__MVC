@@ -1,0 +1,99 @@
+﻿@model BookShop.DVD
+
+@{
+    ViewBag.Title = "DetailsDVD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetailsDVD</h2>
+
+<div>
+    <h4>DVD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DVDName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVDName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMDB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMDB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Explanations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Explanations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoldAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoldAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director.DirectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director.DirectorName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditDVD", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "DVDList")
+</p>

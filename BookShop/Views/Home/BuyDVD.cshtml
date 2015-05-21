@@ -1,0 +1,106 @@
+﻿@model BookShop.DVD
+
+@{
+    ViewBag.Title = "BuyDVD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BuyDVD</h2>
+
+<div>
+    <h4>DVD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DVDName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVDName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMDB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMDB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Explanations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Explanations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoldAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoldAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director.DirectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director.DirectorName)
+        </dd>
+        <dt>
+            @Html.DisplayName("Sold Amount")
+        </dt>
+        <dd>
+            @Html.TextBox("strSoldAmount")
+        </dd>
+
+    </dl>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BookShop.MusicCD>
+
+@{
+    ViewBag.Title = "MusicList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MusicList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddMusicCD")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MusicCDName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Explanations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoldAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.ProductType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Musician.MusicianName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicCDName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Explanations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoldAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.ProductType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Musician.MusicianName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditMusicCD", new { id = item.id }) |
+            @Html.ActionLink("Details", "DetailsMusicCD", new { id = item.id }) |
+            @Html.ActionLink("Delete", "DeleteMusicCD", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

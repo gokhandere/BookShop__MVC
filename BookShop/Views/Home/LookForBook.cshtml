@@ -1,0 +1,76 @@
+﻿@model IEnumerable<BookShop.Book>
+
+@{
+    ViewBag.Title = "LookForBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Look For Book</h2>
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishingHouse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishingYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Explanations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        
+       
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Author.AuthorName)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishingHouse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishingYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Explanations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.AuthorName)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Buy", "BuyBook", new { id = item.id })
+           
+        </td>
+    </tr>
+}
+
+</table>

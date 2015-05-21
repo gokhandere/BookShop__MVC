@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookShopDBModelStoreContainer" CdmEntityContainer="BookShopDBContext">
+    <EntitySetMapping Name="Actor">
+      <EntityTypeMapping TypeName="BookShopDBModel.Actor">
+        <MappingFragment StoreEntitySet="Actor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ActorName" ColumnName="ActorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Author">
+      <EntityTypeMapping TypeName="BookShopDBModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Book">
+      <EntityTypeMapping TypeName="BookShopDBModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="PublishingHouse" ColumnName="PublishingHouse" />
+          <ScalarProperty Name="PublishingYear" ColumnName="PublishingYear" />
+          <ScalarProperty Name="Explanations" ColumnName="Explanations" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="StockAmount" ColumnName="StockAmount" />
+          <ScalarProperty Name="SoldAmount" ColumnName="SoldAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookSales">
+      <EntityTypeMapping TypeName="BookShopDBModel.BookSales">
+        <MappingFragment StoreEntitySet="BookSales">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="BookShopDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Director">
+      <EntityTypeMapping TypeName="BookShopDBModel.Director">
+        <MappingFragment StoreEntitySet="Director">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVD">
+      <EntityTypeMapping TypeName="BookShopDBModel.DVD">
+        <MappingFragment StoreEntitySet="DVD">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
+          <ScalarProperty Name="DVDName" ColumnName="DVDName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="IMDB" ColumnName="IMDB" />
+          <ScalarProperty Name="Explanations" ColumnName="Explanations" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="StockAmount" ColumnName="StockAmount" />
+          <ScalarProperty Name="SoldAmount" ColumnName="SoldAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVD_Actor">
+      <EntityTypeMapping TypeName="BookShopDBModel.DVD_Actor">
+        <MappingFragment StoreEntitySet="DVD_Actor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DVDID" ColumnName="DVDID" />
+          <ScalarProperty Name="ActorID" ColumnName="ActorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVDSales">
+      <EntityTypeMapping TypeName="BookShopDBModel.DVDSales">
+        <MappingFragment StoreEntitySet="DVDSales">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DVDID" ColumnName="DVDID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MusicCD">
+      <EntityTypeMapping TypeName="BookShopDBModel.MusicCD">
+        <MappingFragment StoreEntitySet="MusicCD">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="MusicianID" ColumnName="MusicianID" />
+          <ScalarProperty Name="MusicCDName" ColumnName="MusicCDName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Explanations" ColumnName="Explanations" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="StockAmount" ColumnName="StockAmount" />
+          <ScalarProperty Name="SoldAmount" ColumnName="SoldAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MusicCDSales">
+      <EntityTypeMapping TypeName="BookShopDBModel.MusicCDSales">
+        <MappingFragment StoreEntitySet="MusicCDSales">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="MusicCDID" ColumnName="MusicCDID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musician">
+      <EntityTypeMapping TypeName="BookShopDBModel.Musician">
+        <MappingFragment StoreEntitySet="Musician">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="MusicianName" ColumnName="MusicianName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

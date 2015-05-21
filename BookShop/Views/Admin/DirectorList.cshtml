@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BookShop.Director>
+
+@{
+    ViewBag.Title = "DirectorList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DirectorList</h2>
+
+<p>
+    @Html.ActionLink("Add Director", "AddDirector")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DirectorName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DirectorName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditDirector", new { id = item.id }) |
+            @Html.ActionLink("Details", "DetailsDirector", new { id = item.id }) |
+            @Html.ActionLink("Delete", "DeleteDirector", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
